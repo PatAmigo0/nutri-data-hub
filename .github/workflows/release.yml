@@ -1,0 +1,85 @@
+name: Publish Data Release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: "Release tag to create (e.g. v1.0.1)"
+        required: true
+        default: "v1.0.1"
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Resolve release tag
+        id: tag
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "tag=${{ inputs.release_tag }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "tag=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Download upstream open datasets
+        run: |
+          mkdir -p _raw_cache
+          curl -fsSL "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-server/main/taxonomies/additives.txt" -o _raw_cache/off_additives.txt
+          curl -fsSL "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-server/main/taxonomies/allergens.txt" -o _raw_cache/off_allergens.txt
+          curl -fsSL "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2025-12-18.zip" -o _raw_cache/usda_foundation.zip
+          curl -fsSL "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_json_2018-04.zip" -o _raw_cache/usda_sr_legacy.zip
+          curl -fsSL "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_survey_food_json_2024-10-31.zip" -o _raw_cache/usda_survey.zip
+          BLS_PATH=$(curl -fsSL "https://blsdb.de/download" | python3 -c "import sys,re,html; s=html.unescape(sys.stdin.read()); m=re.search(r'href=\"([^\"]*BLS_4_0_2025_DE\\.zip[^\"]*)\"', s); print(m.group(1) if m else '')")
+          if [ -n "$BLS_PATH" ]; then
+            curl -fsSL "https://blsdb.de${BLS_PATH}" -o _raw_cache/bls_4_0.zip
+          fi
+
+      - name: Build voice previews and data bundles
+        env:
+          RELEASE_TAG: ${{ steps.tag.outputs.tag }}
+          REPO_SLUG: ${{ github.repository }}
+        run: |
+          python3 scripts/build_voice_previews.py
+          python3 scripts/build_all.py
+
+      - name: Publish GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${{ steps.tag.outputs.tag }}"
+          gh release create "$TAG" \
+            dist/manifest.json \
+            dist/core_foods.db.gz \
+            dist/medical_additives_registry.json.gz \
+            dist/allergens_registry.json.gz \
+            dist/voice_catalog.json \
+            dist/voice-previews-v1.zip \
+            dist/voice_previews/*.ogg \
+            --title "Data Release $TAG" \
+            --notes "Automated data bundle release built from open datasets and repository overrides." \
+            --clobber || \
+          gh release upload "$TAG" \
+            dist/manifest.json \
+            dist/core_foods.db.gz \
+            dist/medical_additives_registry.json.gz \
+            dist/allergens_registry.json.gz \
+            dist/voice_catalog.json \
+            dist/voice-previews-v1.zip \
+            dist/voice_previews/*.ogg \
+            --clobber

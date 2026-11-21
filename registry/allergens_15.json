@@ -1,0 +1,167 @@
+[
+  {
+    "code": "gluten",
+    "nameRu": "Глютен",
+    "nameEn": "Gluten",
+    "jurisdiction": "EU_14+EAEU_15",
+    "severity": "HIGH",
+    "keywords": [
+      "пшениц", "мука", "ячмен", "рожь", "ржано", "глютен", "клейковин", "макарон", "хлеб", "сухар", "солод", "манк", "полба", "спельт", "булгур", "кускус",
+      "wheat", "flour", "barley", "rye", "gluten", "pasta", "bread", "malt", "semolina", "spelt", "kamut", "couscous", "bulgur"
+    ]
+  },
+  {
+    "code": "crustaceans",
+    "nameRu": "Ракообразные",
+    "nameEn": "Crustaceans",
+    "jurisdiction": "EU_14+EAEU_15",
+    "severity": "HIGH",
+    "keywords": [
+      "кревет", "краб", "омар", "лобстер", "лангуст", "рак", "ракообраз", "криль",
+      "shrimp", "prawn", "crab", "lobster", "crayfish", "langoustine", "crustacean", "krill"
+    ]
+  },
+  {
+    "code": "egg",
+    "nameRu": "Яйца",
+    "nameEn": "Eggs",
+    "jurisdiction": "EU_14+EAEU_15",
+    "severity": "HIGH",
+    "keywords": [
+      "яйц", "яичн", "альбумин", "меланж", "желток", "белок яичн", "овальбумин", "лизоцим", "майонез",
+      "egg", "eggs", "albumin", "ovalbumin", "yolk", "meringue", "lysozyme", "mayonnaise"
+    ]
+  },
+  {
+    "code": "seafood",
+    "nameRu": "Рыба",
+    "nameEn": "Fish",
+    "jurisdiction": "EU_14+EAEU_15",
+    "severity": "HIGH",
+    "keywords": [
+      "рыб", "лосос", "семг", "форел", "тунец", "тунц", "треск", "минтай", "сельдь", "селед", "скумбр", "анчоус", "горбуш", "икра", "сурими", "морепродукт",
+      "fish", "salmon", "trout", "tuna", "cod", "herring", "mackerel", "anchovy", "sardine", "haddock", "pollock", "surimi", "seafood"
+    ]
+  },
+  {
+    "code": "peanut",
+    "nameRu": "Арахис",
+    "nameEn": "Peanuts",
+    "jurisdiction": "EU_14+EAEU_15",
+    "severity": "HIGH",
+    "keywords": [
+      "арахис", "земляной орех", "арахисов",
+      "peanut", "peanuts", "groundnut", "arachis"
+    ]
+  },
+  {
+    "code": "soy",
+    "nameRu": "Соя",
+    "nameEn": "Soy",
+    "jurisdiction": "EU_14+EAEU_15",
+    "severity": "HIGH",
+    "keywords": [
+      "соя", "соев", "тофу", "темпе", "эдамаме", "мисо", "лецитин соев", "лецитин", "e322",
+      "soy", "soya", "soybean", "tofu", "tempeh", "edamame", "miso", "lecithin"
+    ]
+  },
+  {
+    "code": "lactose",
+    "nameRu": "Лактоза",
+    "nameEn": "Milk & Lactose",
+    "jurisdiction": "EU_14+EAEU_15",
+    "severity": "HIGH",
+    "keywords": [
+      "молок", "сливк", "сыр", "творог", "масло сливоч", "сливочн", "лактоз", "йогурт", "кефир", "ряженк", "сметан", "сыворотк", "казеин", "казеинат", "молочн", "пахт", "маскарпоне", "рикотт", "моцарелл", "пармезан",
+      "milk", "cream", "cheese", "butter", "lactose", "yogurt", "yoghurt", "whey", "casein", "caseinate", "dairy", "buttermilk", "ghee", "curd"
+    ]
+  },
+  {
+    "code": "nuts",
+    "nameRu": "Орехи",
+    "nameEn": "Tree nuts",
+    "jurisdiction": "EU_14+EAEU_15",
+    "severity": "HIGH",
+    "keywords": [
+      "фундук", "миндал", "кешью", "грецк", "орех", "пекан", "фисташ", "макадам", "бразильск", "кедров", "марципан", "пралине",
+      "almond", "hazelnut", "walnut", "cashew", "pecan", "pistachio", "macadamia", "brazil nut", "pine nut", "marzipan", "praline", "tree nuts", "nuts"
+    ]
+  },
+  {
+    "code": "celery",
+    "nameRu": "Сельдерей",
+    "nameEn": "Celery",
+    "jurisdiction": "EU_14+EAEU_15",
+    "severity": "MEDIUM",
+    "keywords": [
+      "сельдер", "корень сельдер", "семена сельдер",
+      "celery", "celeriac", "celery seed", "celery salt"
+    ]
+  },
+  {
+    "code": "mustard",
+    "nameRu": "Горчица",
+    "nameEn": "Mustard",
+    "jurisdiction": "EU_14+EAEU_15",
+    "severity": "HIGH",
+    "keywords": [
+      "горчиц", "горчичн", "дижонск",
+      "mustard", "mustard seed", "dijon"
+    ]
+  },
+  {
+    "code": "sesame",
+    "nameRu": "Кунжут",
+    "nameEn": "Sesame",
+    "jurisdiction": "EU_14+EAEU_15",
+    "severity": "HIGH",
+    "keywords": [
+      "кунжут", "сезам", "тахини", "тхина", "халва кунжут",
+      "sesame", "tahini", "sesamum", "gomashio"
+    ]
+  },
+  {
+    "code": "sulfites",
+    "nameRu": "Сульфиты",
+    "nameEn": "Sulfites",
+    "jurisdiction": "EU_14+EAEU_15",
+    "severity": "HIGH",
+    "keywords": [
+      "сульфит", "диоксид серы", "сернист", "метабисульфит", "пиросульфит", "e220", "e221", "e222", "e223", "e224", "e225", "e226", "e227", "e228",
+      "sulfite", "sulphite", "sulfur dioxide", "sulphur dioxide", "metabisulfite", "metabisulphite", "bisulfite"
+    ]
+  },
+  {
+    "code": "lupin",
+    "nameRu": "Люпин",
+    "nameEn": "Lupin",
+    "jurisdiction": "EU_14+EAEU_15",
+    "severity": "MEDIUM",
+    "keywords": [
+      "люпин", "люпинов",
+      "lupin", "lupine", "lupin flour", "lupin bean"
+    ]
+  },
+  {
+    "code": "molluscs",
+    "nameRu": "Моллюски",
+    "nameEn": "Molluscs",
+    "jurisdiction": "EU_14+EAEU_15",
+    "severity": "HIGH",
+    "keywords": [
+      "миди", "устриц", "кальмар", "осьминог", "гребешк", "улитк", "моллюск", "каракатиц",
+      "mussel", "oyster", "squid", "calamari", "octopus", "scallop", "clam", "snail", "mollusc", "mollusk", "cuttlefish"
+    ]
+  },
+  {
+    "code": "aspartame_pku",
+    "nameRu": "Аспартам (фенилаланин)",
+    "nameEn": "Aspartame (Phenylalanine)",
+    "jurisdiction": "EAEU_15",
+    "severity": "HIGH",
+    "keywords": [
+      "аспартам", "фенилаланин", "аспартам-ацесульфам", "e951", "e962",
+      "aspartame", "phenylalanine", "aspartame-acesulfame", "nutrasweet"
+    ]
+  }
+]
